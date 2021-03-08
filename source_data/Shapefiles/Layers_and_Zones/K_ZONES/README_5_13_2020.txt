@@ -1,0 +1,57 @@
+EDITED: 5/13/2020
+
+******
+NEW K ZONE (Version2) uploaded.
+******
+
+Enclosed in this directory are the layer elevation surfaces, and K-zone distributions.
+
+Details provided below:
+
+
+1. Folder 'Elevations'
+
+L1_Bottom.tif = Bottom elevations for layer 1 of the model.
+
+L2_Bottom.tif = Bottom elevations for layer 2 of the model.
+
+L3_Bottom__TopOfBedrock.tif = Bottom elevations for layer 3 of the model -- this is also the top of bedrock elevations for the model.
+
+Mosaic_meters_2.0_CLIPPED.tif = Lidar for study area.  Combination of multiple lidar collections.
+
+ZonalStats_lidar_125ft = Lidar upscaled to our model grid (125x125 ft).  This is showing the lidar MINIMUM for each grid cell. If you want more statistics, just let me know.
+
+
+
+
+
+2. Folder 'K_ZONES'
+
+Layer1_K.tif = Layer 1 K zone delineations for the model. 
+
+Layer2_K.tif = Layer 2 K zone delineations for the model. 
+
+Layer3_K.tif = Layer 3 K zone delineations for the model. 
+
+Layer4_K.tif = Layer 4 K zone delineations for the model. 
+
+K_Layers_Polygon = Shapefile showing the polygon shapes of all K delineations.
+
+Rondout_Neversink_GeologyLookupTable = Lookup_Code corresponds to the codes seen in Layer_K.tifs.
+ ****The geology in this region was pretty detailed.  So we tried out best to capture that.
+     If you want us to scale back our zoning, we can try to do so.****
+
+
+
+
+
+
+2. Folder 'Shapefiles'
+
+Model_Extent = Model extent, following HUC boundaries
+
+Model_Grid_Shape_125x125 = Model grid that we used as a basis for the elevations.
+
+
+
+
