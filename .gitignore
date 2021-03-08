@@ -3,6 +3,17 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Mac bummer file
+.DS_Store
+
+# VSCODE and pycharm
+.vscode
+.idea
+
+#  Ipython notebook checkpoints
+.ipynb_checkpoints
+
+:
 # C extensions
 *.so
 
