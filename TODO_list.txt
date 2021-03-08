@@ -1,0 +1,9 @@
+Neversink notebooks todo list:
+- combine 0 and 1 (Mike)
+- make flow chart with file names/paths (do at end)
+- make notebook registry file(s) in markdown with text that explains files and strategy (Nick)
+- number preprocessing notebooks 
+    - break into pre-modflow and pre-pest (Mike)
+    - add comments (both)
+- refactor sciencebase --> source_data (both)
+- update paths in yaml and scripts (Nick)
