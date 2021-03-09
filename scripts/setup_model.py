@@ -120,10 +120,14 @@ def trim_CHDs(m):
 
 
 def add_inflows():
-    df = pd.read_csv('../neversink_mf6/neversink_packagedata.dat', delim_whitespace=True)
-    rno = int(df.loc[df['line_id'] == 200105086].iloc[0]['#rno']
-)
-    pdata = ['', 'BEGIN PERIOD 1', '# rno sfrsetting', '  {} inflow 48932'.format(rno), 'END PERIOD']
+    inflo_df = pd.read_csv('../processed_data/neversink_inflow.csv')
+    sfr_line_id = inflo_df['line_id'].iloc[0]
+    sfr_inflow = inflo_df['flow_m3d'].iloc[0].round(0).astype(int)
+
+    pkg_df = pd.read_csv('../neversink_mf6/neversink_packagedata.dat', delim_whitespace=True)
+    rno = int(pkg_df.loc[pkg_df['line_id'] == sfr_line_id].iloc[0]['#rno'])
+    
+    pdata = ['', 'BEGIN PERIOD 1', '# rno sfrsetting', '  {0} inflow {1}'.format(rno, sfr_inflow), 'END PERIOD']
     cont = [i.rstrip() for i in open('../neversink_mf6/neversink.sfr', 'r').readlines()]
 
     if 'inflow' not in ' '.join(cont):

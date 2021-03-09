@@ -1,2 +1,2 @@
-datetime,per,line_id,flow_m3d,category,rno
-1/2/2011,0,200105086,48931.6,NWIS,1829
+line_id,flow_m3d,category
+200105086,48931.6,NWIS
