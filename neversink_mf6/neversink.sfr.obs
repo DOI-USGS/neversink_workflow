@@ -2,7 +2,7 @@ BEGIN OPTIONS
   DIGITS 5
   PRINT_INPUT
 END OPTIONS
-BEGIN CONTINUOUS FILEOUT /Users/mnfienen/Documents/GIT/neversinkny/neversink_workflow/scripts/../neversink_mf6/neversink.sfr.obs.output.csv
+BEGIN CONTINUOUS FILEOUT neversink.sfr.obs.output.csv
 # obsname  obstype  rno
   1436500  downstream-flow  6700
   1366650  downstream-flow  11127
