@@ -1,0 +1,4 @@
+#parent nam file just for reading in hds info
+#xll:1595205.0; yll:1714285.0; rotation:0; proj4_str:+init=epsg:5070; units:meters; lenuni:2;  ;start_datetime:1-1-2011
+LIST               2  ngwm_parent.list
+DIS               11  ngwm_parent.dis

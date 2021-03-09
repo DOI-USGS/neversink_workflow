@@ -12,7 +12,7 @@ use_additional_flowlines = True  # option to use additional, manually-created sf
 simname = 'mfsim.nam'
 model_ws = '../neversink_mf6/'
 nhd_dir = '../sciencebase/NHDPlus/'
-processed_input = '../processed_input'
+processed_input = '../processed_data'
 
 sim = flopy.mf6.MFSimulation.load(simname, 'mf6', sim_ws=model_ws)
 m = sim.get_model()
@@ -177,14 +177,14 @@ if not use_additional_flowlines is True:
 sfrdata = lines.to_sfr(grid=flopy_grid, model=m, model_length_units='meters', epsg=5070, consolidate_conductance=True, one_reach_per_cell=True)
 
 print('setting streambed top elevations from dem...')
-sfrdata.set_streambed_top_elevations_from_dem('../sciencebase/Shapefiles/top_50m_from_lidar.tif', dem_z_units='meters')
+sfrdata.set_streambed_top_elevations_from_dem('../source_data/Shapefiles/top_50m_from_lidar.tif', dem_z_units='meters')
 
 sfrdata.assign_layers('../neversink_mf6')
 #sfrdata.run_diagnostics(verbose=False)
 
 #  add sfr observations
 print('adding sfr observations...')
-sfrdata.add_observations('../obs_data/NWIS_DV_STREAMSTATS_SITES.csv',
+sfrdata.add_observations('../processed_data/NWIS_DV_STREAMSTATS_SITES.csv',
                          obstype='downstream-flow',
                          x_location_column='x',
                          y_location_column='y',

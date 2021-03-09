@@ -7,3 +7,11 @@ Neversink notebooks todo list:
     - add comments (both)
 - refactor sciencebase --> source_data (both)
 - update paths in yaml and scripts (Nick)
+
+
+NOTES and ISSUES:
+- notebook 0.4_k_zone_padding can only be run after building the morel - 
+            maybe move to PEST setup?
+- notebook 0.5_inspect_parent_models requires all the big NGWM files - skip?
+- ditto for 0.6_merge_parent_models.ipynb
+

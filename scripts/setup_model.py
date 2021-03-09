@@ -33,7 +33,7 @@ def setup_model():
 def reassign_well_pumping():
     # load up well pumping and metadata
     welldata = pd.read_csv('../neversink_mf6/wel_000.dat', delim_whitespace=True)
-    metadata = pd.read_csv('../processed_input/2009-2016_ave_pumping.csv')
+    metadata = pd.read_csv('../processed_data/2009-2016_ave_pumping.csv')
     welldata=welldata.merge(metadata[['ID_Well','Comments']], left_on = 'boundname', right_on="ID_Well")
     
     # pulling the layering info from the metadata comments which indicate layering in the following cases
@@ -72,7 +72,7 @@ def reassign_well_pumping():
 def trim_CHDs(m):
     
     # read in the valley extent shapefile
-    val = gp.read_file('../sciencebase/Shapefiles/Extents/Valley_Extent_extended.shp')
+    val = gp.read_file('../source_data/Shapefiles/Extents/Valley_Extent_extended.shp')
     # set up a spatial reference object to be able to locate the CHD cells to intersect with the valley
     xul = 1742955.0
     yll = 2258285.0
