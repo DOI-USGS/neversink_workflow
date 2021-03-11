@@ -37,10 +37,10 @@ def reassign_well_pumping():
     welldata=welldata.merge(metadata[['ID_Well','Comments']], left_on = 'boundname', right_on="ID_Well")
     
     # pulling the layering info from the metadata comments which indicate layering in the following cases
-    wellid = ['WWR0000401_Davos Well #3', 'WWR0000401_Riverside Well #3',
-       'WWR0000506_Fallsburg Well #3', 'WWR0000506_Fallsburg Well #6',
-       'WWR0000506_Fallsburg Well #7', 'WWR0001055_Mountaindale Well #2',
-       'WWR0001734_52912000-1', 'WWR0001738_Well #1', 'WWR0001748_Well 3']
+    wellid = ['SV_193', 'SV_227',
+       'SV__61', 'SV__63',
+       'SV_266', 'SV_407',
+       'SV_510', 'SV_463', 'SV_487']
     layer = [3,1,3,3,1,3,1,1,1]
     updates = dict(zip(wellid,layer))
     
@@ -49,21 +49,21 @@ def reassign_well_pumping():
         welldata.loc[welldata.boundname==w,'#k'] = l
     
     # move a couple specific wells that need adjusting because they are in streams
-    #welldata.loc[welldata.boundname=='WWR0000479_Center St. Well', 'j'] += 1
-    welldata.loc[welldata.boundname=='WWR0001748_Well 3', 'j'] -= 1
-    welldata.loc[welldata.boundname=='WWR0000506_Fallsburg Well #7', 'j'] += 1
-    welldata.loc[welldata.boundname=='WWR0000506_Woodbourne Well #1A', 'j'] += 1
-    welldata.loc[welldata.boundname=='WWR0000506_Woodbourne Well #2', 'j'] -= 1
-    welldata.loc[welldata.boundname=='WWR0001734_52912000-6', 'j'] -= 1
-    welldata.loc[welldata.boundname=='WWR0001738_Well #1', 'j'] += 1
-    welldata.loc[welldata.boundname=='WWR0001738_Well #2', 'j'] += 1
+    #welldata.loc[welldata.boundname=='U__55', 'j'] += 1
+    welldata.loc[welldata.boundname=='SV_487', 'j'] -= 1
+    welldata.loc[welldata.boundname=='SV_266', 'j'] += 1
+    welldata.loc[welldata.boundname=='well_5', 'j'] += 1
+    welldata.loc[welldata.boundname=='SV_256', 'j'] -= 1
+    welldata.loc[welldata.boundname=='SV_515', 'j'] -= 1
+    welldata.loc[welldata.boundname=='SV_463', 'j'] += 1
+    welldata.loc[welldata.boundname=='SV_465', 'j'] += 1
     
     # and this annoying well prevents convergence of the whole model. But.....it's up on a knob so q->0
-    welldata.loc[welldata.boundname=='WWR0001734_52912000-3','q']=0
+    welldata.loc[welldata.boundname=='SV_512','q']=0
     #  this well too
-    welldata.loc[welldata.boundname=='WWR0001734_52912000-7','q']=0
+    welldata.loc[welldata.boundname=='SV_516','q']=0
     # well, while we are at it, this one as well
-    welldata.loc[welldata.boundname=='WWR0001738_Well #3','q']=0
+    welldata.loc[welldata.boundname=='SV_470','q']=0
 
 
     # save out the results
