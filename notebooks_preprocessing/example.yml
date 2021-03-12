@@ -1,7 +1,7 @@
 simulation:
   sim_name: 'mfsim'
   version: 'mf6'
-  sim_ws: '../tmp/neversink'
+  sim_ws: 'tmp/neversink'
 
 model:
   simulation: 'neversink'
@@ -53,7 +53,7 @@ dis:
   source_data:
 
     idomain:
-      filename: 'shapefiles/Extents/Model_Extent_HUC12.shp'
+      filename: '../source_data/Shapefiles/Extents/Model_Extent_HUC12.shp'
   minimum_layer_thickness: 1 # layers less than this thickness are converted to vertical pass-through cells
   drop_thin_cells: True
 
