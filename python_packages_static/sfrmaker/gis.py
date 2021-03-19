@@ -13,10 +13,10 @@ import gisutils
 from gisutils import df2shp, shp2df, project, get_shapefile_crs, get_authority_crs
 import sfrmaker
 
-if version.parse(gisutils.__version__) < version.parse('0.2.2'):
+'''if version.parse(gisutils.__version__) < version.parse('0.2.2'):
     warnings.warn('Automatic reprojection functionality requires gis-utils >= 0.2.2'
                   '\nPlease pip install --upgrade gis-utils')
-
+'''
 
 def get_crs(prjfile=None, epsg=None, proj_str=None, crs=None):
     if crs is not None:

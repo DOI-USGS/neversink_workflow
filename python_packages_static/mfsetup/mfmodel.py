@@ -53,12 +53,13 @@ from mfsetup.tdis import (
 from mfsetup.units import convert_length_units, lenuni_text, lenuni_values
 from mfsetup.utils import flatten, get_input_arguments, get_packages, update
 
-if version.parse(gisutils.__version__) < version.parse('0.2.2'):
+'''if version.parse(gisutils.__version__) < version.parse('0.2.2'):
     warnings.warn('Automatic reprojection functionality requires gis-utils >= 0.2.2'
                   '\nPlease pip install --upgrade gis-utils')
 if version.parse(sfrmaker.__version__) < version.parse('0.6'):
     warnings.warn('sfr: sfrmaker_options: add_outlet functionality requires sfrmaker >= 0.6'
                   '\nPlease pip install --upgrade sfrmaker')
+'''
 
 
 class MFsetupMixin():
