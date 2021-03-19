@@ -1,0 +1,28 @@
+name: neversink
+channels:
+- conda-forge
+- defaults
+dependencies:
+- python=3.*
+- ipython
+- jupyter
+- notebook
+- ipykernel
+- matplotlib
+- pyyaml
+- geopandas
+- numpy
+- scipy
+- xarray
+- netcdf4
+- pandas
+- gdal
+- fiona
+- rasterio>=1.0
+- rasterstats
+- shapely
+- rtree
+- pyproj>=2.0
+- pyshp
+- xlrd
+
