@@ -1,0 +1,220 @@
+# starting version number for the project
+# version reported by modflow-setup will then be
+# the start_version appended by the remaining information
+# in a pep440-post style version tag
+# (e.g. most recent git commit hash for the model repository
+# + "dirty" if the model repository has uncommited changes)
+# see https://github.com/warner/python-versioneer/blob/master/details.md
+metadata:
+  start_version: 0
+  longname:
+
+simulation:
+  options: {}
+  sim_name: 'mfsim'
+  version: 'mf6'
+  exe_name: 'mf6'
+  sim_ws: '.'
+
+model:
+  modelname: 'model'
+  version: 'mf6'
+  # list file format is relative to the model workspace
+  list_filename_fmt: '{}.list'
+  options:
+    print_input: True
+    print_flows: False
+    save_flows: True
+    newton: True
+    newton_under_relaxation: False
+  packages: []
+  hiKlakes_value: 1.e4
+  default_lake_depth: 2 # m; default depth to assume when setting up lak package or high-k lakes (layer 1 bottom is adjusted to achieve this thickness)
+  external_path: 'external/'
+  relative_external_filepaths: True
+
+parent:
+
+intermediate_data:
+  output_folder: 'original/'  # external arrays are read from here by flopy, and written to external_path
+
+postprocessing:
+  output_folders:
+    pdfs: 'postproc/pdfs'
+    rasters: 'postproc/rasters'
+    shapefiles: 'postproc/shps'
+    tables: 'tables/'
+
+setup_grid:
+  structured: True
+  rotation: 0
+  variable_mappings:
+    xll: "xoff"
+    yll: "Yoff"
+  output_files:
+    grid_file: '{}_grid.json'
+    bbox_shapefile: '{}_bbox.shp'
+  snap_to_NHG: False
+
+dis:
+  remake_top: True
+  options:
+    length_units: 'meters'
+  dimensions: {}
+  griddata: {}
+  top_filename_fmt: "top.dat"
+  botm_filename_fmt: "botm_{:03d}.dat"
+  idomain_filename_fmt: "idomain_{:03d}.dat"
+  minimum_layer_thickness: 1  # in model units
+  drop_thin_cells: True
+
+tdis:
+  options:
+    time_units: 'days'
+    start_date_time: '1970-01-01'
+    end_date_time: None
+  dimensions: {}
+  perioddata:
+    perlen: 1
+
+ic:
+  strt_filename_fmt: "strt_{:03d}.dat"
+  griddata:
+    strt:
+
+npf:
+  options:
+    save_flows: True
+  griddata:
+    icelltype: 1
+  k_filename_fmt: "k_{:03d}.dat"
+  k33_filename_fmt: "k33_{:03d}.dat"
+
+sto:
+  options:
+    save_flows: True
+  griddata:
+    iconvert: 1
+  sy_filename_fmt: "sy_{:03d}.dat"
+  ss_filename_fmt: "ss_{:03d}.dat"
+
+rch:
+  options:
+    print_input: True
+    print_flows: True
+    save_flows: True
+    readasarrays: True
+  recharge_filename_fmt: "rch_{:03d}.dat"
+  irch_filename_fmt: "irch.dat"
+
+sfr:
+  options:
+    save_flows: True
+    mover: True
+  budget_fileout: 'sfr.out.bin'
+  stage_fileout: 'sfr.stage.bin'
+  obs6_filein_fmt: 'sfr.obs'
+  external_files: True  # option to write packagedata to an external file
+
+# option to simulate lakes as zones of high hydraulic conductivity
+# (see Anderson and others (2002) in the references)
+high_k_lakes:
+  simulate_high_k_lakes: False
+  high_k_value: 1.e+4
+  sy: 1.0
+  ss: 5.e-10  # (approx. compressibility of water in Pa-1 or m2/N)
+
+lak:
+  options:
+    save_flows: True
+    budget_fileout: 'lake_out.bin'
+    stage_fileout: 'lake_stage.bin'
+    obs6_filein_fmt: '{}.sfr.obs6'
+    boundnames: True
+  lakarr_filename_fmt: 'lakarr_{:03d}.dat'
+  lakzones_filename_fmt: 'lakzones.dat' # file containing zones for lakebed leakance
+  external_files: True
+  horizontal_connections: False
+  connectiondata_filename_fmt: 'lake_connectiondata.dat'  # external table for connectiondata block
+  output_files:
+    lookup_file: '{}_lak_lookup.csv'  # output file that maps lake ids to source polygon feature ids
+    connections_lookup_file: '{}_lak_connections_lookup.csv'  # output file that maps lake/gw connections to zones
+
+mvr:
+  options:
+    print_flows: True
+
+riv:
+  options:
+    print_input: True
+    print_flows: True
+    save_flows: True
+    boundnames: True
+  output_files:
+    rivdata_file: '{}_rivdata.csv' # table with auxillary information on river reaches (routing, source hydrography IDs, etc.)
+  external_files: True  # option to write stress_period_data to external files
+
+wel:
+  options:
+    print_input: True
+    print_flows: True
+    save_flows: True
+    boundnames: True
+  output_files:
+    lookup_file: '{}_wel_lookup.csv' # output file that maps wel package data to site numbers
+    dropped_wells_file: '{}_dropped_wells.csv' # output file that records wells that were dropped during model setup
+  minimum_layer_thickness: 2.
+  external_files: True  # option to write stress_period_data to external files
+  external_filename_fmt: "wel_{:03d}.dat"
+
+chd:
+  options:
+    print_input: False
+    print_flows: False
+    save_flows: True
+  external_files: True  # option to write stress_period_data to external files
+
+oc:
+  head_fileout_fmt: '{}.hds'
+  budget_fileout_fmt: '{}.cbc'
+  # example of using MODFLOW 6 text input
+  period_options: {0: ['save head last',
+                       'save budget last']
+  }
+
+obs:
+  options:
+    digits: 10
+    print_input: True
+  source_data:
+    column_mappings:
+      hydlbl: ['obsprefix', 'obsnme', 'common_name']
+  default_columns:
+    x_location_col: 'x' # x coordinates in wtm
+    y_location_col: 'y' # y coordinates in wtm
+  filename_fmt: '{}.head.obs'  # only head obs supported at this point
+
+ims:
+  options:
+    print_option: 'all'
+    'csv_output fileout': '{}_solver_out.csv'
+  nonlinear:
+    outer_dvclose: 1.e-1
+    outer_maximum: 200
+    under_relaxation:  'dbd'
+    under_relaxation_theta: 0.7
+    under_relaxation_kappa: 0.1
+    under_relaxation_gamma: 0.0
+    under_relaxation_momentum: 0.0
+    backtracking_number: 0
+  linear:
+    inner_maximum: 100
+    inner_dvclose: 1.e-2
+    rcloserecord: [0.0001, 'relative_rclose']
+    linear_acceleration: 'bicgstab'
+    relaxation_factor: 0.0  # either ILU(0) or ILUT preconditioning
+    preconditioner_levels: 7
+    preconditioner_drop_tolerance: 0.001
+    number_orthogonalizations: 0
+    scaling_method: None
+    reordering_method: None

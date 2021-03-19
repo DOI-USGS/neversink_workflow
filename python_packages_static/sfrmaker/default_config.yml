@@ -1,0 +1,2 @@
+# configuration defaults for Sfrmaker yaml input
+output_path: '.'  # where output files will be saved
