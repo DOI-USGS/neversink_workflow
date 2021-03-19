@@ -9,6 +9,8 @@ import numpy as np
 import geopandas as gp
 from shapely.geometry import Point
 import pandas as pd
+import sys
+sys.path.append('../python_packages_static')
 
 
 def setup_model():

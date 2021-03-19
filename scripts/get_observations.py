@@ -1,9 +1,10 @@
+import sys
+sys.path.append('../python_packages_static')
 import pandas as pd
 import os
 import numpy as np
 import flopy as fp
 import flopy.utils as fu
-import sys
 
 # define a MF6 capable T calculation function (thanks Andy!)
 def get_transmissivities(heads, hk, top, botm,

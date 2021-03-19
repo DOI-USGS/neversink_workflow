@@ -5,6 +5,8 @@ import numpy as np
 import flopy
 import sfrmaker
 import geopandas as gpd
+import sys
+sys.path.append('../python_packages_static')
 
 setup_from_scratch = False
 use_additional_flowlines = True  # option to use additional, manually-created sfr flowlines to reduce flooding in priority recharge areas

@@ -1,4 +1,5 @@
 import sys, os
+sys.path.append('../python_packages_static')
 import zipfile
 import numpy as np
 import pandas as pd

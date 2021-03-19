@@ -1,11 +1,11 @@
 import sys, os
+sys.path.append('../python_packages_static')
 import zipfile
 import numpy as np
 import pandas as pd
 import pyemu
 import flopy.utils as fu
 from get_endpoints import get_endpoints
-
 #  set path
 run_dir = '.'
 

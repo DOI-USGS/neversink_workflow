@@ -1,5 +1,6 @@
-import os
+import sys, os
 import numpy as np
+sys.path.append('../python_packages_static')
 
 ext_dir = '../neversink_mf6/'
 

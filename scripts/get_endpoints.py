@@ -1,4 +1,5 @@
 import os, sys
+sys.path.append('../python_packages_static')
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
