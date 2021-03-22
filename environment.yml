@@ -25,4 +25,4 @@ dependencies:
 - pyproj>=2.0
 - pyshp
 - xlrd
-
+- openpyxl
