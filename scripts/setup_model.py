@@ -1,4 +1,5 @@
-import os
+import os, sys
+sys.path.append('../python_packages_static')
 import flopy
 import flopy.utils as fu
 mf6 = flopy.mf6
@@ -9,8 +10,7 @@ import numpy as np
 import geopandas as gp
 from shapely.geometry import Point
 import pandas as pd
-import sys
-sys.path.append('../python_packages_static')
+
 
 
 def setup_model():
@@ -173,6 +173,9 @@ def add_sfr_to_nam_file():
             else:
                 ofp.write('  SFR6  neversink.sfr  sfr_0\n')
                 ofp.write(line)
+
+#def update_ims():
+
           
 
 
