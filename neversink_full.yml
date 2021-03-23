@@ -175,15 +175,26 @@ ims:
     complexity: 'complex'
     'csv_output fileout': 'solver_out.csv'
   nonlinear:
-    outer_dvclose: 1.e-2
+    outer_hclose: 1.e-2
     outer_rclosebnd: 1.e4
     outer_maximum: 200
+    under_relaxation:  'dbd'
+    under_relaxation_gamma: 0.0
+    under_relaxation_theta: 0.7
+    under_relaxation_kappa: 0.1
+    under_relaxation_momentum: 0.0
+    backtracking_number: 0
   linear:
     inner_maximum: 175
-    inner_dvclose: 1.e-4
+    inner_hclose: 1.e-4
     rcloserecord: [1.0e3, 'strict']
     linear_acceleration: 'bicgstab'
-    
+    relaxation_factor: 0.0
+    preconditioner_levels: 0
+    preconditioner_drop_tolerance: 0.001
+    number_orthogonalizations: 0
+    scaling_method: None
+    reordering_method: None
 
 obs:
   source_data:
