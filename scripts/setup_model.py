@@ -174,10 +174,6 @@ def add_sfr_to_nam_file():
                 ofp.write('  SFR6  neversink.sfr  sfr_0\n')
                 ofp.write(line)
 
-#def update_ims():
-
-          
-
 
 if __name__ == '__main__':
     setup_all = True
