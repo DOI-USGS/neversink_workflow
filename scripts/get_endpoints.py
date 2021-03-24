@@ -16,7 +16,7 @@ def get_endpoints(mpend_file, region):
     m = sim.get_model()
 
     # read endpoints from dest cells
-    dest_nodes = [1042614, 214382, 562588, 574351, 575587, 574968, 1041449, 344623]
+    dest_nodes = [1042614, 214382, 1041449, 344623, 574351, 562588, 575587, 574968]
                 
 
     epth = os.path.join(model_ws, mpend_file)
