@@ -5651,28 +5651,28 @@ land_surf_obs_650_450  2.6693000000E+02      1.0000000000E-01      land_surface
 * model command line
 python forward_run.py
 * model input/output
-wel__0_grid.csv.tpl mult\wel__0_grid.csv
-chd__0_grid.csv.tpl mult\chd__0_grid.csv
+wel__0_grid.csv.tpl mult/wel__0_grid.csv
+chd__0_grid.csv.tpl mult/chd__0_grid.csv
 k_pp_0pp.dat.tpl k_pp_0pp.dat
-k_0_0_zone.csv.tpl mult\k_0_0_zone.csv
+k_0_0_zone.csv.tpl mult/k_0_0_zone.csv
 k_pp_1pp.dat.tpl k_pp_1pp.dat
-k_1_0_zone.csv.tpl mult\k_1_0_zone.csv
+k_1_0_zone.csv.tpl mult/k_1_0_zone.csv
 k_pp_2pp.dat.tpl k_pp_2pp.dat
-k_2_0_zone.csv.tpl mult\k_2_0_zone.csv
+k_2_0_zone.csv.tpl mult/k_2_0_zone.csv
 k_pp_3pp.dat.tpl k_pp_3pp.dat
-k_3_0_zone.csv.tpl mult\k_3_0_zone.csv
+k_3_0_zone.csv.tpl mult/k_3_0_zone.csv
 k33_pp_0pp.dat.tpl k33_pp_0pp.dat
-k33_0_0_zone.csv.tpl mult\k33_0_0_zone.csv
+k33_0_0_zone.csv.tpl mult/k33_0_0_zone.csv
 k33_pp_1pp.dat.tpl k33_pp_1pp.dat
-k33_1_0_zone.csv.tpl mult\k33_1_0_zone.csv
+k33_1_0_zone.csv.tpl mult/k33_1_0_zone.csv
 k33_pp_2pp.dat.tpl k33_pp_2pp.dat
-k33_2_0_zone.csv.tpl mult\k33_2_0_zone.csv
+k33_2_0_zone.csv.tpl mult/k33_2_0_zone.csv
 k33_pp_3pp.dat.tpl k33_pp_3pp.dat
-k33_3_0_zone.csv.tpl mult\k33_3_0_zone.csv
+k33_3_0_zone.csv.tpl mult/k33_3_0_zone.csv
 rch_pp_0pp.dat.tpl rch_pp_0pp.dat
-rch_const_0_constant.csv.tpl mult\rch_const_0_constant.csv
-.\neversink_packagedata.dat.tpl .\neversink_packagedata.dat
-.\obs_mf6.dat.ins .\obs_mf6.dat
+rch_const_0_constant.csv.tpl mult/rch_const_0_constant.csv
+./neversink_packagedata.dat.tpl ./neversink_packagedata.dat
+./obs_mf6.dat.ins ./obs_mf6.dat
 ++ies_num_reals(500)
 ++ies_bad_phi_sigma(2)
 ++overdue_giveup_fac(4)
