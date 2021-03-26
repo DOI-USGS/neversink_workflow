@@ -1,0 +1,87 @@
+dis:
+  dimensions:
+    ncol: 619
+    nlay: 1
+    nrow: 680
+  drop_thin_cells: true
+  griddata:
+    botm: 0
+    delc: 50
+    delr: 50
+    top: 100
+  minimum_layer_thickness: 1
+  options:
+    length_units: meters
+  remake_top: true
+  source_data:
+    idomain:
+      filename: ../source_data/Shapefiles/Extents/Model_Extent_HUC12.shp
+ims:
+  linear:
+    inner_hclose: 0.01
+    inner_maximum: 100
+    linear_acceleration: bicgstab
+    number_orthogonalizations: 0
+    preconditioner_drop_tolerance: 0.001
+    preconditioner_levels: 7
+    rcloserecord:
+    - 0.0001
+    - relative_rclose
+    relaxation_factor: 0.0
+    reordering_method: None
+    scaling_method: None
+  nonlinear:
+    backtracking_number: 0
+    outer_hclose: 0.1
+    outer_maximum: 200
+    outer_rclosebnd: 1.e4
+    under_relaxation: dbd
+    under_relaxation_gamma: 0.0
+    under_relaxation_kappa: 0.1
+    under_relaxation_momentum: 0.0
+    under_relaxation_theta: 0.7
+  options:
+    complexity: moderate
+    csv_output fileout: solver_out.csv
+    print_option: all
+intermediate_data:
+  output_folder: original/
+model:
+  external_path: external/
+  modelname: neversink
+  options:
+    newton: true
+    newton_under_relaxation: false
+    print_input: true
+    save_flows: true
+  packages:
+  - dis
+  - ims
+  relative_external_filepaths: true
+  simulation: neversink
+oc:
+  budget_fileout_fmt: '{}.cbc'
+  head_fileout_fmt: '{}.hds'
+  saverecord:
+    0:
+      budget: last
+      head: last
+setup_grid:
+  epsg: 5070
+  rotation: 0.0
+  snap_to_NHG: true
+  xoff: 1743735.4876964327
+  yoff: 2258813.8672688426
+simulation:
+  sim_name: mfsim
+  sim_ws: tmp/neversink
+  version: mf6
+tdis:
+  options:
+    start_date_time: '2015-01-01'
+    time_units: days
+  perioddata:
+    nper: 1
+    nstp: 1
+    steady: true
+    tsmult: 1
