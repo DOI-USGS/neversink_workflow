@@ -21,7 +21,7 @@ The [Jupyter Notebook App](https://jupyter-notebook-beginner-guide.readthedocs.i
 * Type `jupyter notebook` to launch the Jupyter Notebook App and the notebook interface will appear in a new browser window or tab. 
 
 PEST++ and MODFLOW 6 executables are required to run the model locally. Executables for Windows, Mac, and Linux can be downloaded from these links: 
-* [MODFLOW 6 (`mf6`)](https://github.com/MODFLOW-USGS/executables)
+* [MODFLOW 6 (`mf6`) and MODPATH 7 (`mp7`)](https://github.com/MODFLOW-USGS/executables)
 * [PEST++ (`pestpp-ies` and `pestpp-sen`)](https://github.com/usgs/pestpp/releases)
 
 # Using the repository 
