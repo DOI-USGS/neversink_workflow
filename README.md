@@ -1,10 +1,30 @@
 # Workflow to accompany source water delineation for the Neversink-Rondout Basin, New York
 This repository documents both the workflow and contains the dataset to repeat the model-building, data assimilation, and analysis in the two papers: 
 
-Corson-Dosch, et al. _Areas contributing recharge to priority wells in valley-fill aquifers in the Neversink and Rondout Basins, New York_ in press as a USGS Scientific Investigations Report; and 
+Corson-Dosch, N.T., Fienen, M.N., Finklestein, J.S., Leaf, A.T., White, J.T., Woda, J. andWilliams, J.H (2021) _Areas contributing recharge to priority wells in valley-fill aquifers in the Neversink and Rondout Basins, New York_ in press as a USGS Scientific Investigations Report; and 
 
-Fienen, et al. _Risk-based wellhead protection decision support: a repeatable workflow approach_ submitted to Groundwater
+Fienen, M.N., Corson-Dosch, N.T., White, J.T., Leaf, A.T., and Hunt, R.J. (2021) _Risk-based wellhead protection decision support: a repeatable workflow approach_ submitted to Groundwater
+# MODEL ARCHIVE
 
+Archive created: 2021-05-20
+# DISCLAIMER-
+                                                                          
+  THE FILES CONTAINED HEREIN ARE PROVIDED AS A CONVENIENCE TO THOSE
+  WHO WISH TO REPLICATE SIMULATIONS OF RECHARGE THAT ARE
+  DESCRIBED IN THE WISCONSIN DEPARTMENT OF NATURAL RESOURCES PUBLICATION
+  THE CENTRAL SANDS LAKE STUDY TECHICAL REPORT: APPENDIX C, MODELING DOCUMENTATION.
+  ANY CHANGES MADE TO THESE FILES COULD HAVE UNINTENDED, UNDESIRABLE      
+  CONSEQUENCES.   THESE CONSEQUENCES COULD INCLUDE, BUT MAY NOT BE 
+  NOT LIMITED TO: ERRONEOUS MODEL OUTPUT, NUMERICAL INSTABILITIES, 
+  AND VIOLATIONS OF UNDERLYING ASSUMPTIONS ABOUT THE SUBJECT HYDROLOGIC       
+  SYSTEM THAT ARE INHERENT IN RESULTS PRESENTED IN THE 
+  WISCONSIN DEPARTMENT OF NATURAL RESOURCES PUBLICATION. 
+  THE U.S. GEOLOGICAL SURVEY ASSUMES NO RESPONSIBILITY FOR THE            
+  CONSEQUENCES OF ANY CHANGES MADE TO THESE FILES.  IF CHANGES ARE MADE
+  TO THE MODEL, THE USER IS RESPONSIBLE FOR DOCUMENTING THE CHANGES AND
+  JUSTIFYING THE RESULTS AND CONCLUSIONS.   
+
+--------------------------------------------------------------------------
 # Getting started
 The workflow in this repository depends on a number of python packages. Static versions of the model-specific packages are included in the repository. However, a Conda environment must be installed to provide more general underlying packages.
 
@@ -17,14 +37,15 @@ To install, an environment file is provided in the root directory of the reposit
 
 The [Jupyter Notebook App](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html#notebook-app) can be opened from the Anaconda prompt or terminal window to run and explore the preprocessing and workflow notebooks. To launch the Jupyter Notebook App, follow these steps:
 * Open an Anaconda prompt on Windows, or in a terminal window on Mac or Linux
-* Navigate into this repository folder by typing `cd /path_to_repo_folder`. 
+* Navigate into this repository folder by typing `cd /<path_to_repo_folder>`. 
 * Type `jupyter notebook` to launch the Jupyter Notebook App and the notebook interface will appear in a new browser window or tab. 
 
-PEST++ and MODFLOW 6 executables are required to run the model locally. Executables for Windows, Mac, and Linux can be downloaded from these links: 
+PEST++ and MODFLOW 6 executables are required to run the model locally and must be copied into each run directory or, alternatively, added to the system path. Executables for Windows, Mac, and Linux can be downloaded from these links: 
 * [MODFLOW 6 (`mf6`) and MODPATH 7 (`mp7`)](https://github.com/MODFLOW-USGS/executables)
 * [PEST++ (`pestpp-ies` and `pestpp-sen`)](https://github.com/usgs/pestpp/releases)
+Current versions are also included in `bin.zip`. 
 
-# Using the repository 
+# Using this archive 
 This repository is designed so that there are multiple paths a user can take though the workflow. Depending on user's objectives and level of interest, the workflow from the journal article and USGS report can be:
 1. Replicated using supplied results, 
 2. Rebuilt to generate local results, or 
@@ -47,7 +68,7 @@ _Using this approach, the user can repeat the model building and data assimilati
 2. Run `setup_model.py` in the `scripts` subdirectory to rebuild the modflow model from source data and processed data.
 3. Run notebooks in `notebooks_workflow_blank` subdirectory in ascending order (start with 0.0, end with 4.2). Make sure the `run_ensemble` flag is set to `True` to generate local results. 
 4. The user will run the MODFLOW model locally using PESTPP-IES and PESTPP-SEN. Local results will be saved in the `run_data` subdirectory
-5. Instructions to run the MODPATH Monte Carlo analysis (between workflow notebooks 4.1 and 4.2) are not included in this workflow. In the current setup, these workflow notebooks (4.0, 4.1 & 4.2) can only be run with supplied results (from `output/modpath`). The user could reproduce this step by running MODPATH once for each MODPATH zone (NE, W, and SE) and parameter realization in `modpath_par_ens.csv` (generated in workflow notebook `3.2_postproc_iES-LT_noise.ipynb`). In the paper, this was accomplished using the [HTCondor](https://research.cs.wisc.edu/htcondor/) run manager. HTCondor files used in this study are included in `output/modpath`  
+5. Instructions to run the MODPATH Monte Carlo analysis (between workflow notebooks 4.1 and 4.2) are not included in this workflow. In the current setup, these workflow notebooks (4.0, 4.1 & 4.2) can only be run with supplied results (from `output/modpath`). The user could reproduce this step by running MODPATH once for each MODPATH zone (NE, W, and SE) and parameter realization in `modpath_par_ens.csv` (generated in workflow notebook `3.2_postproc_iES-LT_noise.ipynb`). In the paper, this was accomplished using the [HTCondor](https://research.cs.wisc.edu/htcondor/) run manager. 
 
 
 ### 3. Review completed notebooks
@@ -57,11 +78,19 @@ _The user can review completed Jupyter Notebooks that contain code, output, and 
 2. Review completed workflow notebooks in the `notebooks_workflow_complete` subdirectory. These notebooks show the complete history-matching and MODPATH workflow.
 3. MODFLOW and MODPATH input and output files can be reviewed in the `neversink_mf6` subdirectory.
 
-# Description of repository subdirectories and top-level files
-## /Figures
+# Description of subdirectories and top-level files
+Each of the following directories can be uncompressed from a zip archive file with the same base name (e.g. `bin.zip` becomes `bin`)
+## /bin
+Executable files for running the models.
+
+## /figures
 subdirectory containing figures generated during the neversink workflow
 ## /neversink_mf6
 subdirectory containing MOFLOW files and subdirectories generated by `modflow-setup`. MODPATH files generated in the workflow are also saved here 
+
+## /neversink_optimal
+MODFLOW and MODPATH files with properties assigned from the optimal "base" iteration of history matching. These can be considered as representative "best" model files. Output files are provided in the `/output` directory for comparison with the results written to this folder.
+
 ## /notebooks\_preprocessing\_blank
 Blank preprocessing notebooks used to process source data for MODPATH and PEST. These notebooks can be run by users following path 1 or path 2 described in the **Using the repository** section above. 
 ## /notebooks\_preprocessing\_complete
@@ -71,10 +100,13 @@ Blank workflow notebooks used for history matching and MODPATH. These notebooks 
 ## /notebooks\_workflow\_complete
 Complete workflow notebooks sed for history matching and MODPATH. These notebooks can be reviewed by users following path 3 described in the **Using the repository** section above.
 ## /output
-Results from the journal article, can be used to run workflow notebooks by users following path 2 described in the **Using the repository** section above.. 
+Results from the journal article, can be used to run workflow notebooks by users following path 2 described in the **Using the repository** section above.
+
+Special cases are the `neversink_modpath_optimal_output` and `neversink_mf6_optimal_output` directories which contain static results from the optimal base models documented in the reports. These are provided for reference and are not overwritten by users rerunning the models but provided for comparison.
+
 ## /processed\_data
 MODFLOW and PEST data sets developed in `notebooks_preprocessing`, derrived from `source_data`.
-## /python\_pacakges\_static
+## /python\_packages_\_static
 Static versions of the model-specific Python packages.
 ## /scripts
 Python scripts used during model building, history matching, and MODPATH post-processing
