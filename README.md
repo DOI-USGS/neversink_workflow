@@ -1,13 +1,14 @@
 # Workflow to accompany source water delineation for the Neversink-Rondout Basin, New York
 This repository documents both the workflow and contains the dataset to repeat the model-building, data assimilation, and analysis in the two papers: 
 
-Corson-Dosch, N.T., Fienen, M.N., Finklestein, J.S., Leaf, A.T., White, J.T., Woda, J. andWilliams, J.H (2021) _Areas contributing recharge to priority wells in valley-fill aquifers in the Neversink and Rondout Basins, New York_ in press as a USGS Scientific Investigations Report; and 
+Corson-Dosch, N.T., Fienen, M.N., Finklestein, J.S., Leaf, A.T., White, J.T., Woda, J. and Williams, J.H (2021) _Areas contributing recharge to priority wells in valley-fill aquifers in the Neversink and Rondout Basins, New York_ in press as a USGS Scientific Investigations Report; and 
 
 Fienen, M.N., Corson-Dosch, N.T., White, J.T., Leaf, A.T., and Hunt, R.J. (2021) _Risk-based wellhead protection decision support: a repeatable workflow approach_ submitted to Groundwater
 # MODEL ARCHIVE
 
 Archive created: 2021-05-20
-# DISCLAIMER-
+
+# DISCLAIMER
                                                                           
   THE FILES CONTAINED HEREIN ARE PROVIDED AS A CONVENIENCE TO THOSE
   WHO WISH TO REPLICATE SIMULATIONS OF RECHARGE THAT ARE
@@ -46,14 +47,22 @@ PEST++ and MODFLOW 6 executables are required to run the model locally and must 
 Current versions are also included in `bin.zip`. 
 
 # Using this archive 
-This repository is designed so that there are multiple paths a user can take though the workflow. Depending on user's objectives and level of interest, the workflow from the journal article and USGS report can be:
-1. Replicated using supplied results, 
-2. Rebuilt to generate local results, or 
-3. Reviewed, as completed notebooks, without re-running any code. 
+This repository is designed so that there are multiple paths a user can take though the model and the workflow. Depending on user's objectives and level of interest, the model and workflow from the journal article and USGS report can be accessed and used in the following ways:
+
+1. Evaluating and running a representative set of model parameters resulting from history matching
+2. Replicating the workflow (pre- and post-processing) using supplied model and history matching results 
+3. Rebuilding the model from data sources to generate local results and run the pre- and post-processing and all models locally
+4. Reviewing completed notebooks, populated with complete ensemble results as generated for the article and report without re-running any code. 
 
 ## Roadmap for each path 
 Here we present the recommended order of operations for for each of the three paths through the workflow 
-### 1. Replicated using supplied results
+
+### 1. Evaluating and running a representative set of model parameters resulting from history matching  
+_Optimal models and results are available for inspection._  
+1. Model files populated with the base parameters from the optimal iterative ensemble smoother history matching process are supplied in the `neversink_optimal` folder.
+2. Output from the model runs are available in the `neversink_mf6_optimal_output` and `neversink_modpath_optimal_output` folders in the `output` folder for the MODFLOW 6 and MODPATH 7 model runs, respectively. These output results are provided for comparison with runs performed in the `neversink_optimal` folder.
+
+### 2. Replicated using supplied results
 
 _Using this approach, the user can step through the  notebooks and apply the workflow described in the journal article and USGS report using supplied results. This approach does not require that MODFLOW or PEST be run locally._
 
@@ -61,7 +70,7 @@ _Using this approach, the user can step through the  notebooks and apply the wor
 2. (**Optional**) Run `setup_model.py` in the `scripts` subdirectory to rebuild the modflow model from source data and processed data.
 3. Run notebooks in `notebooks_workflow_blank` subdirectory in ascending order (start with 0.0, end with 4.2). Make sure the `run_ensemble` flag is set to `False` to use results supplied in the `output` subdirectory.  
 
-### 2. Rebuild to generate local results
+### 3. Replicating the workflow (pre- and post-processing) using supplied model and history matching results
 _Using this approach, the user can repeat the model building and data assimilation steps from scratch and step through the history matching workflow to generate results locally, running MODFLOW and PEST on their machine._
 
 1. Run notebooks in `notebooks_preprocessing` to generate MODFLOW  (notebooks starting with "0.") and PEST (notebooks starting with "1.") input data sets from source data.
@@ -71,7 +80,7 @@ _Using this approach, the user can repeat the model building and data assimilati
 5. Instructions to run the MODPATH Monte Carlo analysis (between workflow notebooks 4.1 and 4.2) are not included in this workflow. In the current setup, these workflow notebooks (4.0, 4.1 & 4.2) can only be run with supplied results (from `output/modpath`). The user could reproduce this step by running MODPATH once for each MODPATH zone (NE, W, and SE) and parameter realization in `modpath_par_ens.csv` (generated in workflow notebook `3.2_postproc_iES-LT_noise.ipynb`). In the paper, this was accomplished using the [HTCondor](https://research.cs.wisc.edu/htcondor/) run manager. 
 
 
-### 3. Review completed notebooks
+### 4. Reviewing completed notebooks, populated with complete ensemble results as generated for the article and report without re-running any code. 
 _The user can review completed Jupyter Notebooks that contain code, output, and text which describe the model building, data assimilation, and history matching workflows. This approach does not require running Notebooks, PESTPP, or MODFLOW._ 
 
 1. Review completed preprocessing notebooks in the `notebooks_preprocessing_complete` subdirectory. 
@@ -79,9 +88,13 @@ _The user can review completed Jupyter Notebooks that contain code, output, and 
 3. MODFLOW and MODPATH input and output files can be reviewed in the `neversink_mf6` subdirectory.
 
 # Description of subdirectories and top-level files
-Each of the following directories can be uncompressed from a zip archive file with the same base name (e.g. `bin.zip` becomes `bin`)
+Each of the following directories can be uncompressed from a zip archive file with the same base name (e.g. `bin.zip` becomes `bin`).
 ## /bin
-Executable files for running the models.
+Executable files for running the models: 
+ * MODFLOW 6 version 6.2.1
+ * MODFLOW 7 version 7.2001
+ * PEST++ version 5.0.10
+
 
 ## /figures
 subdirectory containing figures generated during the neversink workflow
@@ -110,6 +123,8 @@ MODFLOW and PEST data sets developed in `notebooks_preprocessing`, derrived from
 Static versions of the model-specific Python packages.
 ## /scripts
 Python scripts used during model building, history matching, and MODPATH post-processing
+## /source
+Source code for the MODFLOW 6, MODPATH 7, and PEST++ binaries.
 ## /sourcedata
 Unmanipulated MODFLOW and PEST input and assimilation data sets. 
 ## environment.yml
