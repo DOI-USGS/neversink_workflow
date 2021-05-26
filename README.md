@@ -92,7 +92,7 @@ Each of the following directories can be uncompressed from a zip archive file wi
 ## /bin
 Executable files for running the models: 
  * MODFLOW 6 version 6.2.1
- * MODFLOW 7 version 7.2001
+ * MODPATH 7 version 7.2001
  * PEST++ version 5.0.10
 
 
@@ -115,7 +115,7 @@ Complete workflow notebooks sed for history matching and MODPATH. These notebook
 ## /output
 Results from the journal article, can be used to run workflow notebooks by users following path 2 described in the **Using the repository** section above.
 
-Special cases are the `neversink_modpath_optimal_output` and `neversink_mf6_optimal_output` directories which contain static results from the optimal base models documented in the reports. These are provided for reference and are not overwritten by users rerunning the models but provided for comparison.
+Special cases are the `neversink_mp7_optimal_output` and `neversink_mf6_optimal_output` directories which contain static results from the optimal base models documented in the reports. These are provided for reference and are not overwritten by users rerunning the models but provided for comparison.
 
 ## /processed\_data
 MODFLOW and PEST data sets developed in `notebooks_preprocessing`, derrived from `source_data`.
