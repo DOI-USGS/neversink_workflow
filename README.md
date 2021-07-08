@@ -127,6 +127,8 @@ Python scripts used during model building, history matching, and MODPATH post-pr
 Source code for the MODFLOW 6, MODPATH 7, and PEST++ binaries.
 ## /source_data
 Unmanipulated MODFLOW and PEST input and assimilation data sets. 
+## /supplementary_tables
+Excel spreadsheet with tables that provide prior and posterior information on the parameters and outline performance of observation groups in the iES runs documented in the paper. 
 ## environment.yml
 [Conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file) that can be used to create the `neversink`  environment.
 ## neversink\_full.yml
