@@ -8,14 +8,14 @@ dependencies:
 - jupyter
 - notebook
 - ipykernel
-- matplotlib
+- matplotlib=3.4.2
 - pyyaml
 - geopandas
-- numpy
+- numpy=1.21.0
 - scipy
 - xarray
 - netcdf4
-- pandas
+- pandas=1.2.5
 - gdal
 - fiona
 - rasterio>=1.0
