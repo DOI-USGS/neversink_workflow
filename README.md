@@ -10,20 +10,19 @@ Archive created: 2021-05-20
 
 # DISCLAIMER
                                                                           
-  THE FILES CONTAINED HEREIN ARE PROVIDED AS A CONVENIENCE TO THOSE
-  WHO WISH TO REPLICATE SIMULATIONS OF RECHARGE THAT ARE
-  DESCRIBED IN THE WISCONSIN DEPARTMENT OF NATURAL RESOURCES PUBLICATION
-  THE CENTRAL SANDS LAKE STUDY TECHICAL REPORT: APPENDIX C, MODELING DOCUMENTATION.
-  ANY CHANGES MADE TO THESE FILES COULD HAVE UNINTENDED, UNDESIRABLE      
-  CONSEQUENCES.   THESE CONSEQUENCES COULD INCLUDE, BUT MAY NOT BE 
-  NOT LIMITED TO: ERRONEOUS MODEL OUTPUT, NUMERICAL INSTABILITIES, 
-  AND VIOLATIONS OF UNDERLYING ASSUMPTIONS ABOUT THE SUBJECT HYDROLOGIC       
-  SYSTEM THAT ARE INHERENT IN RESULTS PRESENTED IN THE 
-  WISCONSIN DEPARTMENT OF NATURAL RESOURCES PUBLICATION. 
-  THE U.S. GEOLOGICAL SURVEY ASSUMES NO RESPONSIBILITY FOR THE            
-  CONSEQUENCES OF ANY CHANGES MADE TO THESE FILES.  IF CHANGES ARE MADE
-  TO THE MODEL, THE USER IS RESPONSIBLE FOR DOCUMENTING THE CHANGES AND
-  JUSTIFYING THE RESULTS AND CONCLUSIONS.   
+  THE FILES CONTAINED HEREIN ARE PROVIDED AS AN ARCHIVE OF THE GROUNDWATER FLOW
+  AND PARTICLE TRACKING SIMULATIONS DESCRIBED IN PUBLICATIONS BY 
+  CORSON-DOSCH AND OTHERS (2021) AND FIENEN AND OTHERS (2021), LISTED ABOVE.
+  THE FILES ARE ALSO PROVIDED AND AS A CONVENIENCE TO THOSE WHO WISH TO 
+  REPLICATE SIMULATIONS AND REPEAT THE MODELING WORKFLOW. ANY CHANGES MADE TO 
+  THESE FILES COULD HAVE UNINTENDED, UNDESIRABLE CONSEQUENCES. THESE 
+  CONSEQUENCES COULD INCLUDE, BUT MAY NOT BE NOT LIMITED TO: ERRONEOUS MODEL 
+  OUTPUT, NUMERICAL INSTABILITIES, AND VIOLATIONS OF UNDERLYING ASSUMPTIONS 
+  ABOUT THE SUBJECT HYDROLOGIC SYSTEM THAT ARE INHERENT IN RESULTS PRESENTED IN 
+  THE ASSOCIATED INTERPRETIVE REPORTS. THE U.S. GEOLOGICAL SURVEY ASSUMES NO 
+  RESPONSIBILITY FOR THE CONSEQUENCES OF ANY CHANGES MADE TO THESE FILES.  IF 
+  CHANGES ARE MADE TO THE MODEL, THE USER IS RESPONSIBLE FOR DOCUMENTING THE 
+  CHANGES AND JUSTIFYING THE RESULTS AND CONCLUSIONS.     
 
 --------------------------------------------------------------------------
 # Getting started
@@ -47,28 +46,31 @@ PEST++ and MODFLOW 6 executables are required to run the model locally and must 
 Current versions are also included in `bin.zip`. 
 
 # Using this archive 
-This repository is designed so that there are multiple paths a user can take though the model and the workflow. Depending on user's objectives and level of interest, the model and workflow from the journal article and USGS report can be accessed and used in the following ways:
+This repository is designed so that there are multiple paths a user can take though the model and the workflow. Depending on the user's objectives and level of interest, the model and workflow from the journal article and USGS report can be accessed and used in the following ways:
 
-1. Evaluating and running a representative set of model parameters resulting from history matching
+1. Running and evaluating a single MODFLOW and/or MDOPATH simulation with a representative set of model parameters resulting from history matching
 2. Replicating the workflow (pre- and post-processing) using supplied model and history matching results 
 3. Rebuilding the model from data sources to generate local results and run the pre- and post-processing and all models locally
 4. Reviewing completed notebooks, populated with complete ensemble results as generated for the article and report without re-running any code. 
 
 ## Roadmap for each path 
-Here we present the recommended order of operations for for each of the three paths through the workflow 
+Here we present the recommended order of operations for each of the four paths through the workflow 
 
-### 1. Evaluating and running a representative set of model parameters resulting from history matching  
-_Optimal models and results are available for inspection._  
-1. Model files populated with the base parameters from the optimal iterative ensemble smoother history matching process are supplied in the `neversink_optimal` folder.
-2. Output from the model runs are available in the `neversink_mf6_optimal_output` and `neversink_modpath_optimal_output` folders in the `output` folder for the MODFLOW 6 and MODPATH 7 model runs, respectively. These output results are provided for comparison with runs performed in the `neversink_optimal` folder.
+### 1. Running and evaluating a a single MODFLOW and/or MDOPATH simulation with a representative set of model parameters resulting from history matching  
+_This approach is intended for users interested in a single, representative realization of model parameters and the associated smulation results. Optimal MODFLOW6 and MODFLOW7 files were created using the "base" parameters from the optimal (posterior) parameter ensemble from the PESTPP-IES history matching analysis. These optimal model files are supplied in the `neversink_optimal` subdirectory and can be run to replcate results supplied in the `output` subdirectory_  
+1. Inspect the optimal MODFLOW6 and MODPATH7 files supplied in the `neversink_optimal` subdirectory.
+2. (**Optional -- run MODFLOW6**) Open an Anaconda or Command prompt (if using Windows) or a termanl window (if using Mac or Linux) inside the `neversink_optimal` subdirectory. If MODFLOW6 is in the system path, simpy enter `mf6` to run the optimal MODFLOW6 simulation. If MODFLOW6 is not in the system path, use the MODFLOW6 executable supplied in the `bin` subdirectory for the appropreate operating system.
+3. (**Optional -- run MODPATH7. Note: Step 2 must be completed first**) After MODFLOW6 has sucessfuly run (step 2), open an Anaconda or Command prompt (if using Windows) or a termanl window (if using Mac or Linux) inside the `neversink_optimal` subdirectory.
+If MODPATH7 is in the system path, simpy enter `mp7` to start a MODPATH7 simulation. If MODPATH7 is not in the system path, use the MODPATH7 executable supplied in the `bin` subdirectory for the appropreate operating system. Three seperate MODPATH7 simulations will need to be run - one for each of the NE, S and W zones. For each run, use one of the three MODPATH simulation files provided in `neversink_optimal` (these files have an `.mpsim` file suffix. For example, the simulation file for the NE area is `neversink_mp_forward_weak_NE.mpsim`).
+4. Output from the model runs are available in the `neversink_mf6_optimal_output` and `neversink_modpath_optimal_output` folders in the `output` folder for the MODFLOW 6 and MODPATH 7 model runs, respectively. These output results are provided for comparison with runs performed in the `neversink_optimal` folder (completed during optinal steps 2 and 3).
 
 ### 2. Replicated using supplied results
 
 _Using this approach, the user can step through the  notebooks and apply the workflow described in the journal article and USGS report using supplied results. This approach does not require that MODFLOW or PEST be run locally._
 
-1. (**Optional**) Run notebooks in `notebooks_preprocessing_blank` to generate MODFLOW  (notebooks starting with "0.") and PEST (notebooks starting with "1.") input data sets from source data. Complete preprocessing notebooks are aslo available to review in `notebooks_preprocessing_complete`
-2. (**Optional**) Run `setup_model.py` in the `scripts` subdirectory to rebuild the modflow model from source data and processed data.
-3. Run notebooks in `notebooks_workflow_blank` subdirectory in ascending order (start with 0.0, end with 4.2). Make sure the `run_ensemble` flag is set to `False` to use results supplied in the `output` subdirectory.  
+1. (**Optional**) Run notebooks in `notebooks_preprocessing_blank` to generate MODFLOW  (notebooks starting with "0.") and PEST (notebooks starting with "1.") input data sets from source data. Complete preprocessing notebooks are also available to review in `notebooks_preprocessing_complete`
+2. (**Optional**) Open an Anaconda prompt (if using Windows) or a termanl window (if using Mac or Linux), navigate into the `/scripts` subdirectory (by typing `cd scripts`), and activate the Conda neversink environment (by entering `activate neversink`). Run `setup_model.py` in the `scripts` subdirectory (by typing `python setup_model.py`) to rebuild the modflow model from source data and processed data.
+3. Run the Jupyter Notebooks in the `notebooks_workflow_blank` subdirectory in ascending order (start with 0.0, end with 4.2). Make sure the `run_ensemble` flag is set to `False` to use results supplied in the `output` subdirectory.  
 
 ### 3. Replicating the workflow (pre- and post-processing) using supplied model and history matching results
 _Using this approach, the user can repeat the model building and data assimilation steps from scratch and step through the history matching workflow to generate results locally, running MODFLOW and PEST on their machine._
@@ -77,7 +79,7 @@ _Using this approach, the user can repeat the model building and data assimilati
 2. Run `setup_model.py` in the `scripts` subdirectory to rebuild the modflow model from source data and processed data.
 3. Run notebooks in `notebooks_workflow_blank` subdirectory in ascending order (start with 0.0, end with 4.2). Make sure the `run_ensemble` flag is set to `True` to generate local results. 
 4. The user will run the MODFLOW model locally using PESTPP-IES and PESTPP-SEN. Local results will be saved in the `run_data` subdirectory
-5. Instructions to run the MODPATH Monte Carlo analysis (between workflow notebooks 4.1 and 4.2) are not included in this workflow. In the current setup, these workflow notebooks (4.0, 4.1 & 4.2) can only be run with supplied results (from `output/modpath`). The user could reproduce this step by running MODPATH once for each MODPATH zone (NE, W, and SE) and parameter realization in `modpath_par_ens.csv` (generated in workflow notebook `3.2_postproc_iES-LT_noise.ipynb`). In the paper, this was accomplished using the [HTCondor](https://research.cs.wisc.edu/htcondor/) run manager. 
+5. Instructions to run the MODPATH Monte Carlo analysis (between workflow notebooks 4.1 and 4.2) are not included in this workflow. In the current setup, these workflow notebooks (4.0, 4.1 and 4.2) can only be run with supplied results (from `output/modpath_mc`). The user could reproduce this step by running MODPATH once for each MODPATH zone (NE, W, and SE) and parameter realization in `modpath_par_ens.csv` (generated in workflow notebook `3.2_postproc_iES-LT_noise.ipynb`). In the paper, this was accomplished using the [HTCondor](https://research.cs.wisc.edu/htcondor/) run manager. 
 
 
 ### 4. Reviewing completed notebooks, populated with complete ensemble results as generated for the article and report without re-running any code. 
