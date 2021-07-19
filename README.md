@@ -59,7 +59,7 @@ Here we present the recommended order of operations for each of the four paths t
 ### 1. Running and evaluating a a single MODFLOW and/or MDOPATH simulation with a representative set of model parameters resulting from history matching  
 _This approach is intended for users interested in a single, representative realization of model parameters and the associated smulation results. Optimal MODFLOW6 and MODFLOW7 files were created using the "base" parameters from the optimal (posterior) parameter ensemble from the PESTPP-IES history matching analysis. These optimal model files are supplied in the `neversink_optimal` subdirectory and can be run to replcate results supplied in the `output` subdirectory_  
 1. Inspect the optimal MODFLOW6 and MODPATH7 files supplied in the `neversink_optimal` subdirectory.
-2. (**Optional -- run MODFLOW6**) Open an Anaconda or Command prompt (if using Windows) or a termanl window (if using Mac or Linux) inside the `neversink_optimal` subdirectory. If MODFLOW6 is in the system path, simpy enter `mf6` to run the optimal MODFLOW6 simulation. If MODFLOW6 is not in the system path, use the MODFLOW6 executable supplied in the `bin` subdirectory for the appropreate operating system.
+2. (**Optional -- run MODFLOW6**) Open an Anaconda or Command prompt (if using Windows) or a terminal window (if using Mac or Linux) inside the `neversink_optimal` subdirectory. If MODFLOW6 is in the system path, simpy enter `mf6` to run the optimal MODFLOW6 simulation. If MODFLOW6 is not in the system path, use the MODFLOW6 executable supplied in the `bin` subdirectory for the appropreate operating system.
 3. (**Optional -- run MODPATH7. Note: Step 2 must be completed first**) After MODFLOW6 has sucessfuly run (step 2), open an Anaconda or Command prompt (if using Windows) or a termanl window (if using Mac or Linux) inside the `neversink_optimal` subdirectory.
 If MODPATH7 is in the system path, simpy enter `mp7` to start a MODPATH7 simulation. If MODPATH7 is not in the system path, use the MODPATH7 executable supplied in the `bin` subdirectory for the appropreate operating system. Three seperate MODPATH7 simulations will need to be run - one for each of the NE, S and W zones. For each run, use one of the three MODPATH simulation files provided in `neversink_optimal` (these files have an `.mpsim` file suffix. For example, the simulation file for the NE area is `neversink_mp_forward_weak_NE.mpsim`).
 4. Output from the model runs are available in the `neversink_mf6_optimal_output` and `neversink_modpath_optimal_output` folders in the `output` folder for the MODFLOW 6 and MODPATH 7 model runs, respectively. These output results are provided for comparison with runs performed in the `neversink_optimal` folder (completed during optinal steps 2 and 3).
@@ -120,7 +120,7 @@ Results from the journal article, can be used to run workflow notebooks by users
 Special cases are the `neversink_mp7_optimal_output` and `neversink_mf6_optimal_output` directories which contain static results from the optimal base models documented in the reports. These are provided for reference and are not overwritten by users rerunning the models but provided for comparison.
 
 ## /processed\_data
-MODFLOW and PEST data sets developed in `notebooks_preprocessing`, derrived from `source_data`.
+MODFLOW and PEST data sets developed in `notebooks_preprocessing`, derived from `source_data`.
 ## /python\_packages_\_static
 Static versions of the model-specific Python packages.
 ## /scripts
