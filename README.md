@@ -3,7 +3,8 @@ This repository documents both the workflow and contains the dataset to repeat t
 
 Corson-Dosch, N.T., Fienen, M.N., Finklestein, J.S., Leaf, A.T., White, J.T., Woda, J. and Williams, J.H (2021) _Areas contributing recharge to priority wells in valley-fill aquifers in the Neversink and Rondout Basins, New York_ in press as a USGS Scientific Investigations Report; and 
 
-Fienen, M.N., Corson-Dosch, N.T., White, J.T., Leaf, A.T., and Hunt, R.J. (2021) _Risk-based wellhead protection decision support: a repeatable workflow approach_ submitted to Groundwater
+Fienen, M.N., Corson-Dosch, N.T., White, J.T., Leaf, A.T., and Hunt, R.J. (2021) _Risk-based wellhead protection decision support: a repeatable workflow approach_ Groundwater, in press doi:10.1111/gwat.13129
+
 # MODEL ARCHIVE
 
 Archive created: 2021-05-20
