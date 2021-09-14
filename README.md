@@ -3,7 +3,7 @@ This repository documents both the workflow and contains the dataset to repeat t
 
 Corson-Dosch, N.T., Fienen, M.N., Finklestein, J.S., Leaf, A.T., White, J.T., Woda, J. and Williams, J.H (2021) _Areas contributing recharge to priority wells in valley-fill aquifers in the Neversink and Rondout Basins, New York_ in press as a USGS Scientific Investigations Report; and 
 
-Fienen, M.N., Corson-Dosch, N.T., White, J.T., Leaf, A.T., and Hunt, R.J. (2021) _Risk-based wellhead protection decision support: a repeatable workflow approach_ Groundwater, in press doi:10.1111/gwat.13129
+Fienen, M.N., Corson-Dosch, N.T., White, J.T., Leaf, A.T., and Hunt, R.J. (2021) _Risk-based wellhead protection decision support: a repeatable workflow approach_ Groundwater, doi:10.1111/gwat.13129
 
 # MODEL ARCHIVE
 
@@ -46,7 +46,7 @@ PEST++ and MODFLOW 6 executables are required to run the model locally and must 
 * [PEST++ (`pestpp-ies` and `pestpp-sen`)](https://github.com/usgs/pestpp/releases)
 Current versions are also included in `bin.zip`. 
 
-# Using this archive 
+# Using this workflow 
 This repository is designed so that there are multiple paths a user can take though the model and the workflow. Depending on the user's objectives and level of interest, the model and workflow from the journal article and USGS report can be accessed and used in the following ways:
 
 1. Running and evaluating a single MODFLOW and/or MDOPATH simulation with a representative set of model parameters resulting from history matching
