@@ -3,23 +3,23 @@
     "name": "neversink_workflow",
     "organization": "U.S. Geological Survey",
     "description": "Repeatable workflow for MODFLOW and MODPATH modeling in support of sourcewater delineation. The workflow leverages PEST++ and python packages (e.g. mfsetup, pyemu, flopy) to facilitate repeatability",
-    "version": "1.0",
-    "status": "final",
+    "version": "main",
+    "status": "Archival",
 
     "permissions": {
       "usageType": "openSource",
       "licenses": [
         {
           "name": "Public Domain, CC0-1.0",
-          "URL": "https://github.com/usgs/neversink_workflow/raw/main/LICENSE.md"
+          "URL": "https://github.com/OI-USGS/neversink_workflow/raw/main/LICENSE.md"
         }
       ]
     },
 
-    "homepageURL": "https://github.com/usgs/neversink_workflow",
-    "downloadURL": "https://github.com/usgs/neversink_workflow/-/archive/main/neversink_workflow.zip",
-    "disclaimerURL": "https://github.com/usgs/neversink_workflow/raw/main/DISCLAIMER.md",
-    "repositoryURL": "https://github.com/usgs/neversink_workflow.git",
+    "homepageURL": "https://github.com/DOI-USGS/neversink_workflow",
+    "downloadURL": "https://github.com/OI-USGS/neversink_workflow/archive/main/neversink_workflow.zip",
+    "disclaimerURL": "https://github.com/OI-USGS/neversink_workflow/raw/main/DISCLAIMER.md",
+    "repositoryURL": "https://github.com/OI-USGS/neversink_workflow.git",
     "vcs": "git",
 
     "laborHours": 0,
@@ -43,7 +43,7 @@
     },
 
     "date": {
-      "metadataLastUpdated": "2021-05-26"
+      "metadataLastUpdated": "2022-09-13"
     }
   }
 ]
