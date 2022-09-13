@@ -17,9 +17,9 @@
     },
 
     "homepageURL": "https://github.com/DOI-USGS/neversink_workflow",
-    "downloadURL": "https://github.com/OI-USGS/neversink_workflow/archive/main/neversink_workflow.zip",
-    "disclaimerURL": "https://github.com/OI-USGS/neversink_workflow/raw/main/DISCLAIMER.md",
-    "repositoryURL": "https://github.com/OI-USGS/neversink_workflow.git",
+    "downloadURL": "https://github.com/DOI-USGS/neversink_workflow/archive/main/neversink_workflow.zip",
+    "disclaimerURL": "https://github.com/DOI-USGS/neversink_workflow/raw/main/DISCLAIMER.md",
+    "repositoryURL": "https://github.com/DOI-USGS/neversink_workflow.git",
     "vcs": "git",
 
     "laborHours": 0,
