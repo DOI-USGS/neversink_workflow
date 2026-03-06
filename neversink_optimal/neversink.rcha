@@ -7,8 +7,8 @@ END options
 
 BEGIN period  1
   irch
-    OPEN/CLOSE  '.\.\irch.dat'  FACTOR  1
+    OPEN/CLOSE  'irch.dat'  FACTOR  1
   recharge
-    OPEN/CLOSE  '.\.\rch_000.dat'  FACTOR  1.0
+    OPEN/CLOSE  'rch_000.dat'  FACTOR  1.0
 END period  1
 
