@@ -13,7 +13,7 @@ BEGIN Dimensions
 END Dimensions
 
 BEGIN Packagedata
-    OPEN/CLOSE  '.\neversink_packagedata.dat'
+    OPEN/CLOSE  'neversink_packagedata.dat'
 END Packagedata
 
 BEGIN Connectiondata

@@ -11,6 +11,6 @@ BEGIN dimensions
 END dimensions
 
 BEGIN period  1
-    OPEN/CLOSE  '.\.\wel_000.dat'
+    OPEN/CLOSE  'wel_000.dat'
 END period  1
 
